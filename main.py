@@ -17,7 +17,6 @@ import zipfile
 
 # In[2]:
 
-
 from collections import defaultdict
 from io import StringIO
 import matplotlib.pyplot as plt
@@ -107,6 +106,16 @@ with detection_graph.as_default():
                     category_index,
                     use_normalized_coordinates=True,
                     line_thickness=5)
+            
+            """has_already_print_sthg = False
+            for i_box in range(1):
+                class_name = category_index[np.squeeze(classes)[i_box]]['name']
+                if (class_name == 'person'):
+                    if not has_already_print_sthg:
+                        print('Test')
+                        has_already_print_sthg = True"""
+            for i in classes[0]:
+                print(category_index[i]['name'])
             
             ymin = int((boxes[0][0][0]*height))
             xmin = int((boxes[0][0][1]*width))
